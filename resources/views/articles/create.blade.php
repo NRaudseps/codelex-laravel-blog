@@ -8,11 +8,12 @@
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Your article title">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Your article title"
+                required>
             </div>
             <div class="form-group">
                 <label for="content">Content:</label>
-                <textarea class="form-control" name="content" id="content" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="content" id="content" cols="30" rows="5" required></textarea>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create</button>

@@ -1,7 +1,8 @@
 @extends('layouts.app')
+
 @section('content')
     <div class="container">
-        <a href="{{ route('articles.create') }}" class="btn btn-primary btn-sm">
+        <a href="{{ route('articles.create') }}" class="btn btn-primary btn-sm" style="margin-bottom: 25px;">
             Create new article
         </a>
         <table class="table">
@@ -15,12 +16,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($articles as $article)
+                @forelse($articles as $article)
                     <tr>
                         <th scope="row">{{ $article->id }}</th>
                         <td>{{ $article->title }}</td>
-                        <td>{{ $article->created_at->format('Y-m-d h:i') }}</td>
-                        <td>{{ $article->updated_at->format('Y-m-d h:i') }}</td>
+                        <td>{{ $article->created_at->toFormattedDateString() }}</td>
+                        <td>{{ $article->updated_at->toFormattedDateString() }}</td>
                         <td>
                             <a href="{{ route('articles.edit', $article) }}" class="btn btn-sm btn-warning">
                                 Edit
@@ -34,7 +35,9 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <h2 style="margin-top: 10px; margin-bottom: 10px">Nothing here yet.</h2>
+                @endforelse
             </tbody>
         </table>
     </div>
